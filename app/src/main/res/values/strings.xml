@@ -3,4 +3,7 @@
 
     <string name="meBuzz">How long do you want to get a buzz?</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_timer">timerActivity</string>
+
+    <string name="hello_world">Hello world!</string>
 </resources>
