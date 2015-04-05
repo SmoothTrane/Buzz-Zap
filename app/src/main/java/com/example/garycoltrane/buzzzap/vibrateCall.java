@@ -5,12 +5,13 @@ import android.os.Vibrator;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.app.Activity;
+import android.widget.Toast;
 public class vibrateCall {
 
     private Context context;
     private EditText textEdit;
   private  TextView viewTxt;
-   private int domain;
+public int domain;
 public Activity activity;
 
 
@@ -39,8 +40,14 @@ public vibrateCall(Context context, Activity MainActivity){
         textEdit = (EditText) this.activity.findViewById(R.id.editText);
         String b = textEdit.getText().toString();
 
+if(b.isEmpty()){
+    Toast.makeText(context.getApplicationContext(), "Please enter a value",
+            Toast.LENGTH_LONG).show();
 
-        domain = Integer.parseInt(b);
+}
+        else {
+   domain = Integer.parseInt(b);
+}
 
     }
 
