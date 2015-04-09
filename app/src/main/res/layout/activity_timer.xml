@@ -28,6 +28,96 @@
         android:layout_centerHorizontal="true"
         android:textSize="50dp" />
 
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BuzzTime"
+        android:id="@+id/buzzTime"
+
+        android:layout_marginBottom="59dp"
+        android:layout_above="@+id/cancel"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancel"
+        android:id="@+id/cancel"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/buzzTime"
+        android:layout_toEndOf="@+id/buzzTime" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Minutes"
+        android:id="@+id/textView2"
+        android:layout_alignTop="@+id/buzzView"
+        android:layout_alignRight="@+id/buzzTime"
+        android:layout_alignEnd="@+id/buzzTime" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Buzz me in"
+        android:id="@+id/buzzView"
+        android:layout_marginTop="81dp"
+        android:layout_below="@+id/buzzr"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/buzzEdit"
+        android:paddingTop="10px"
+        android:layout_alignBaseline="@+id/buzzView"
+        android:layout_alignBottom="@+id/buzzView"
+        android:layout_alignLeft="@+id/buzzTime"
+        android:layout_alignStart="@+id/buzzTime"
+        android:inputType="number"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="For how many"
+        android:id="@+id/manyStart"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/secEdit"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/manyStart"
+        android:layout_toEndOf="@+id/manyStart"
+        android:inputType="number"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Seconds"
+        android:id="@+id/secStart"
+        android:layout_alignTop="@+id/manyStart"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_alignStart="@+id/textView2" />
+
+    <!--<Button-->
+        <!--style="?android:attr/buttonStyleSmall"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Set"-->
+        <!--android:id="@+id/set"-->
+        <!--android:layout_alignTop="@+id/cancel"-->
+        <!--android:layout_toLeftOf="@+id/buzzr"-->
+        <!--android:layout_toStartOf="@+id/buzzr" />-->
+
+
     <!--<EditText-->
         <!--android:layout_width="wrap_content"-->
         <!--android:layout_height="wrap_content"-->
@@ -60,13 +150,5 @@
         <!--android:layout_alignParentStart="true"-->
         <!--android:layout_marginTop="92dp" />-->
 
-
-    <TimePicker
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/timePicker"
-        android:layout_below="@+id/buzzr"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
 
 </RelativeLayout>
