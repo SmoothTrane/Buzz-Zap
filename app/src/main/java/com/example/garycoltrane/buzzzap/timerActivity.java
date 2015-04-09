@@ -25,15 +25,9 @@ import java.sql.Time;
 
 
 public class timerActivity extends ActionBarActivity {
-    AlarmManager am;
-    PendingIntent pi;
-    BroadcastReceiver br;
-    long alarmDomain;
-    int inDomain;
-    String inputGrab;
-    String inputTake;
-    public vibrateCall vibe = new vibrateCall(this,this);
 
+
+public timerAlarm timr = new timerAlarm (this, this);
     private static final String TAG = "timerActivity";
 
     @Override
@@ -43,14 +37,16 @@ public class timerActivity extends ActionBarActivity {
         getSupportActionBar().hide();
 
        final Button btn = (Button) findViewById(R.id.buzzTime);
-        setup();
+
 
         btn.setOnClickListener(new View.OnClickListener() {
 
        public void onClick(View v) {
-receiveMinInput();
-           receiveSecInput();
-      am.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + alarmDomain * 60000, pi);
+timr.receiveMinInput();
+           timr.receiveSecInput();
+           timr.setup();
+     timr.am.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + timr.alarmDomain * 60000, timr.pi);
+
             }
                    });
 
@@ -63,14 +59,13 @@ receiveMinInput();
 
 
 
-        final Button cancel = (Button) findViewById(R.id.cancel);
+        final Button cancelIt = (Button) findViewById(R.id.cancel);
 
-        cancel.setOnClickListener(new View.OnClickListener(){
+        cancelIt.setOnClickListener(new View.OnClickListener(){
 
             public void onClick(View view){
 
-                Vibrator vibrate = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-                vibrate.cancel();
+                timr.am.cancel(timr.pi);
 
             }
 
@@ -85,62 +80,10 @@ receiveMinInput();
     }
 
 
-public void setup(){
-
-
-    br = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-//            Toast.makeText(context.getApplicationContext(), "AHHHH",
-//                    Toast.LENGTH_LONG).show();
-
-           vibe.vibrate(inDomain*1000);
-
-        }
-    };
-    registerReceiver(br, new IntentFilter("com.example.garycoltrane.buzz"));
-    pi = PendingIntent.getBroadcast(this, 0, new Intent("com.example.garycoltrane.buzz"), 0);
-    am = (AlarmManager) (this.getSystemService(Context.ALARM_SERVICE));
 
 
 
 
-}
-
-    public void receiveMinInput() {
-
-
-        EditText textEdit = (EditText) findViewById(R.id.buzzEdit);
-        inputGrab = textEdit.getText().toString();
-
-        if (inputGrab.isEmpty()) {
-            Toast.makeText(getApplicationContext(), "Please enter a value",
-                    Toast.LENGTH_LONG).show();
-
-        } else {
-            alarmDomain = Integer.parseInt(inputGrab);
-        }
-    }
-
-
-
-        public void receiveSecInput(){
-
-
-       EditText editTxt = (EditText) findViewById(R.id.secEdit);
-        inputTake = editTxt.getText().toString();
-
-
-        if(inputTake.isEmpty()){
-            Toast.makeText(getApplicationContext(), "Please enter a value",
-                    Toast.LENGTH_LONG).show();
-    }
-            else{
-
-
-            inDomain = Integer.parseInt(inputTake);
-        }
-    }
 
 
 }
